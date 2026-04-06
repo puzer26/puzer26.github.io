@@ -483,38 +483,95 @@
 
   /* ─── PRODUCT CATALOG ─── */
   .product-catalog {
-    padding: 120px 52px 160px;
-    background: var(--warm);
+    padding: 100px 52px 140px;
+    background: #e6ddd0;
   }
   .product-catalog-header {
-    text-align: center; margin-bottom: 80px;
+    text-align: center; margin-bottom: 60px;
   }
   .product-catalog-header h2 {
-    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
     font-weight: 900; color: var(--dark);
-    letter-spacing: -0.01em;
-    font-family: 'Georgia', serif;
+    letter-spacing: -0.02em;
+    font-family: 'Georgia', 'Times New Roman', serif;
   }
   .product-catalog-grid {
     display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: 48px 32px;
-    max-width: 1200px; margin: 0 auto;
+    gap: 48px 40px;
+    max-width: 1100px; margin: 0 auto;
   }
   .catalog-card {
     text-align: center; cursor: pointer;
     transition: transform 0.4s ease;
   }
-  .catalog-card:hover { transform: translateY(-8px); }
-  .catalog-card svg {
-    width: 100%; height: auto;
-    max-height: 260px;
-    margin-bottom: 16px;
-    filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.1));
+  .catalog-card:hover { transform: translateY(-6px); }
+  .catalog-product-box {
+    height: 280px;
+    display: flex; align-items: flex-end; justify-content: center;
+    padding-bottom: 10px;
+    margin-bottom: 14px;
   }
+  .p-bottle {
+    position: relative;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  /* Spray bottle */
+  .p-spray .p-cap { width: 20px; height: 20px; background: #1e1a15; border-radius: 3px 3px 0 0; }
+  .p-spray .p-body { width: 64px; height: 160px; background: linear-gradient(180deg,#a88a65,#7a5c3e); border-radius: 5px; position: relative; }
+  .p-spray .p-label { position: absolute; top: 40px; left: 7px; right: 7px; background: #faf8f5; padding: 12px 4px; text-align: center; }
+  /* Diffuser */
+  .p-diffuser .p-cap { width: 40px; height: 16px; background: #1e1a15; border-radius: 2px; }
+  .p-diffuser .p-sticks { display: flex; gap: 3px; justify-content: center; height: 40px; align-items: flex-end; }
+  .p-diffuser .p-stick { width: 2px; background: #c8b89a; border-radius: 1px; }
+  .p-diffuser .p-body { width: 80px; height: 150px; background: linear-gradient(180deg,#9a7855,#6b5030); border-radius: 5px; position: relative; }
+  .p-diffuser .p-label { position: absolute; top: 35px; left: 7px; right: 7px; background: #faf8f5; padding: 14px 4px; text-align: center; }
+  /* Pump (hand wash) */
+  .p-pump .p-pump-top { display: flex; flex-direction: column; align-items: center; }
+  .p-pump .p-nozzle { width: 36px; height: 6px; background: #1e1a15; border-radius: 2px; }
+  .p-pump .p-stem { width: 6px; height: 20px; background: #1e1a15; }
+  .p-pump .p-cap { width: 30px; height: 10px; background: #1e1a15; border-radius: 2px; }
+  .p-pump .p-body { width: 80px; height: 150px; background: linear-gradient(180deg,#a88a65,#7a5c3e); border-radius: 6px; position: relative; }
+  .p-pump .p-label { position: absolute; top: 30px; left: 7px; right: 7px; background: #faf8f5; padding: 14px 4px; text-align: center; }
+  /* Dropper */
+  .p-dropper .p-cap { width: 16px; height: 28px; background: #1e1a15; border-radius: 8px 8px 2px 2px; }
+  .p-dropper .p-body { width: 46px; height: 130px; background: linear-gradient(180deg,#8a6e48,#5a4028); border-radius: 4px; position: relative; }
+  .p-dropper .p-label { position: absolute; top: 30px; left: 5px; right: 5px; background: #faf8f5; padding: 10px 2px; text-align: center; }
+  /* Candle */
+  .p-candle .p-body { width: 80px; height: 100px; background: rgba(255,255,255,0.8); border-radius: 4px; position: relative; }
+  .p-candle .p-wick { width: 2px; height: 10px; background: #c8b89a; margin-bottom: 2px; }
+  .p-candle .p-label { position: absolute; top: 20px; left: 8px; right: 8px; background: transparent; padding: 8px 2px; text-align: center; }
+  /* Tin */
+  .p-tin .p-lid { width: 80px; height: 14px; background: #e8e0d4; border-radius: 40px 40px 0 0; }
+  .p-tin .p-body { width: 80px; height: 50px; background: #f0ebe3; border-radius: 0 0 4px 4px; position: relative; }
+  .p-tin .p-label { position: absolute; top: 5px; left: 8px; right: 8px; text-align: center; }
+  /* Stick */
+  .p-stick-type .p-body { width: 10px; height: 220px; background: linear-gradient(180deg,#d4c4a8,#b8a888); border-radius: 5px; }
+  /* Cone box */
+  .p-cone .p-body { width: 90px; height: 70px; background: #fafafa; border-radius: 16px; position: relative; }
+  .p-cone .p-label { position: absolute; top: 12px; left: 10px; right: 10px; text-align: center; }
+  /* Closet tag */
+  .p-hanger .p-hook { width: 24px; height: 24px; border: 3px solid #c8b89a; border-radius: 50%; margin-bottom: -8px; background: #e6ddd0; position: relative; z-index: 1; }
+  .p-hanger .p-body { width: 70px; height: 160px; background: #c8b89a; border-radius: 4px; position: relative; }
+  .p-hanger .p-label { position: absolute; top: 40px; left: 8px; right: 8px; background: #faf8f5; padding: 10px 4px; text-align: center; }
+  /* Box */
+  .p-box .p-body { width: 110px; height: 90px; background: #c0ae90; border-radius: 3px; position: relative; }
+  .p-box .p-label { position: absolute; top: 20px; left: 15px; right: 15px; text-align: center; }
+  /* Stand */
+  .p-stand .p-body { width: 60px; height: 130px; background: #c8b89a; border-radius: 3px; position: relative; }
+  .p-stand .p-base { width: 80px; height: 8px; background: #b8a888; border-radius: 2px; margin-top: -1px; }
+  .p-stand .p-label { position: absolute; top: 40px; left: 6px; right: 6px; text-align: center; }
+  /* Burner */
+  .p-burner { flex-direction: row !important; align-items: flex-end; gap: 4px; }
+  .p-burner .p-body { width: 80px; height: 90px; background: #c8b89a; border-radius: 3px; position: relative; }
+  .p-burner .p-side { width: 36px; height: 120px; background: #d4c4a8; border-radius: 3px; }
+  .p-burner .p-label { position: absolute; top: 20px; left: 8px; right: 8px; text-align: center; }
+  /* Label text */
+  .p-label-type { font-size: 5px; color: #8a7e6e; letter-spacing: 0.08em; text-transform: uppercase; display: block; margin-bottom: 2px; }
+  .p-label-brand { font-size: 11px; color: #2a2520; font-family: 'Georgia',serif; font-weight: 600; display: block; }
+  .p-label-sub { font-size: 5px; color: #8a7e6e; display: block; margin-top: 2px; }
   .catalog-card-name {
     font-size: 0.85rem; font-weight: 400;
-    color: var(--text);
-    letter-spacing: 0.02em;
+    color: var(--text); letter-spacing: 0.02em;
   }
 
   /* ─── CHAPTER GYEONGJU ─── */
@@ -1012,135 +1069,121 @@
     <h2 class="reveal">Purzer</h2>
   </div>
   <div class="product-catalog-grid">
+    <!-- 룸 스프레이 -->
     <div class="catalog-card reveal">
-      <svg viewBox="0 0 160 240" xmlns="http://www.w3.org/2000/svg">
-        <rect x="45" y="30" width="70" height="190" rx="6" fill="url(#bottle1)"/>
-        <rect x="65" y="10" width="30" height="25" rx="3" fill="#2a2520"/>
-        <rect x="55" y="85" width="50" height="55" fill="#fafafa"/>
-        <text x="80" y="105" text-anchor="middle" font-size="6" fill="#8a7e6e" letter-spacing="0.5">ROOM SPRAY</text>
-        <text x="80" y="120" text-anchor="middle" font-size="11" fill="#2a2520" font-family="Georgia" font-weight="600">Purzer</text>
-        <defs><linearGradient id="bottle1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a08060"/><stop offset="100%" stop-color="#6b4f35"/></linearGradient></defs>
-      </svg>
+      <div class="catalog-product-box">
+        <div class="p-bottle p-spray">
+          <div class="p-cap"></div>
+          <div class="p-body"><div class="p-label"><span class="p-label-type">Room Spray</span><span class="p-label-brand">Purzer</span><span class="p-label-sub">150 ml</span></div></div>
+        </div>
+      </div>
       <div class="catalog-card-name">룸 스프레이</div>
     </div>
+    <!-- 리드 디퓨저 -->
     <div class="catalog-card reveal reveal-delay-1">
-      <svg viewBox="0 0 160 240" xmlns="http://www.w3.org/2000/svg">
-        <rect x="35" y="40" width="90" height="180" rx="6" fill="url(#bottle2)"/>
-        <rect x="55" y="20" width="50" height="25" rx="3" fill="#2a2520"/>
-        <line x1="70" y1="5" x2="70" y2="20" stroke="#c8b89a" stroke-width="1.5"/>
-        <line x1="80" y1="0" x2="80" y2="20" stroke="#c8b89a" stroke-width="1.5"/>
-        <line x1="90" y1="5" x2="90" y2="20" stroke="#c8b89a" stroke-width="1.5"/>
-        <rect x="47" y="90" width="66" height="60" fill="#fafafa"/>
-        <text x="80" y="112" text-anchor="middle" font-size="6" fill="#8a7e6e" letter-spacing="0.5">REED DIFFUSER</text>
-        <text x="80" y="128" text-anchor="middle" font-size="12" fill="#2a2520" font-family="Georgia" font-weight="600">Purzer</text>
-        <defs><linearGradient id="bottle2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#9a7855"/><stop offset="100%" stop-color="#6b5030"/></linearGradient></defs>
-      </svg>
+      <div class="catalog-product-box">
+        <div class="p-bottle p-diffuser">
+          <div class="p-sticks"><div class="p-stick" style="height:35px"></div><div class="p-stick" style="height:40px"></div><div class="p-stick" style="height:32px"></div></div>
+          <div class="p-cap"></div>
+          <div class="p-body"><div class="p-label"><span class="p-label-type">Reed Diffuser</span><span class="p-label-brand">Purzer</span></div></div>
+        </div>
+      </div>
       <div class="catalog-card-name">리드 디퓨저</div>
     </div>
+    <!-- 핸드 워시 -->
     <div class="catalog-card reveal reveal-delay-2">
-      <svg viewBox="0 0 160 240" xmlns="http://www.w3.org/2000/svg">
-        <rect x="35" y="50" width="90" height="175" rx="8" fill="url(#bottle3)"/>
-        <rect x="60" y="30" width="40" height="25" rx="4" fill="#2a2520"/>
-        <rect x="55" y="18" width="50" height="14" rx="2" fill="#2a2520"/>
-        <rect x="72" y="8" width="16" height="12" rx="2" fill="#2a2520"/>
-        <rect x="48" y="100" width="64" height="60" fill="#fafafa"/>
-        <text x="80" y="120" text-anchor="middle" font-size="6" fill="#8a7e6e" letter-spacing="0.5">HAND WASH</text>
-        <text x="80" y="136" text-anchor="middle" font-size="12" fill="#2a2520" font-family="Georgia" font-weight="600">Purzer</text>
-        <defs><linearGradient id="bottle3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a88a65"/><stop offset="100%" stop-color="#7a5c3e"/></linearGradient></defs>
-      </svg>
+      <div class="catalog-product-box">
+        <div class="p-bottle p-pump">
+          <div class="p-pump-top"><div class="p-nozzle"></div><div class="p-stem"></div></div>
+          <div class="p-cap"></div>
+          <div class="p-body"><div class="p-label"><span class="p-label-type">Hand Wash</span><span class="p-label-brand">Purzer</span></div></div>
+        </div>
+      </div>
       <div class="catalog-card-name">핸드 워시</div>
     </div>
+    <!-- 프라그란스 오일 -->
     <div class="catalog-card reveal reveal-delay-3">
-      <svg viewBox="0 0 160 240" xmlns="http://www.w3.org/2000/svg">
-        <rect x="55" y="60" width="50" height="160" rx="4" fill="url(#bottle4)"/>
-        <ellipse cx="80" cy="40" rx="12" ry="22" fill="#2a2520"/>
-        <rect x="76" y="18" width="8" height="24" fill="#2a2520"/>
-        <rect x="62" y="110" width="36" height="45" fill="#fafafa"/>
-        <text x="80" y="126" text-anchor="middle" font-size="5" fill="#8a7e6e" letter-spacing="0.5">FRAGRANCE OIL</text>
-        <text x="80" y="140" text-anchor="middle" font-size="9" fill="#2a2520" font-family="Georgia" font-weight="600">Purzer</text>
-        <defs><linearGradient id="bottle4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8a6e48"/><stop offset="100%" stop-color="#5a4028"/></linearGradient></defs>
-      </svg>
+      <div class="catalog-product-box">
+        <div class="p-bottle p-dropper">
+          <div class="p-cap"></div>
+          <div class="p-body"><div class="p-label"><span class="p-label-type">Fragrance Oil</span><span class="p-label-brand">Purzer</span><span class="p-label-sub">30 ml</span></div></div>
+        </div>
+      </div>
       <div class="catalog-card-name">프라그란스 오일</div>
     </div>
+    <!-- 프라그란스 캔들 -->
     <div class="catalog-card reveal">
-      <svg viewBox="0 0 160 240" xmlns="http://www.w3.org/2000/svg">
-        <rect x="30" y="80" width="100" height="130" rx="4" fill="rgba(255,255,255,0.85)"/>
-        <rect x="42" y="120" width="76" height="50" fill="#fafafa" stroke="#e8e0d4" stroke-width="0.5"/>
-        <text x="80" y="142" text-anchor="middle" font-size="6" fill="#8a7e6e" letter-spacing="0.5">FRAGRANCE CANDLE</text>
-        <text x="80" y="158" text-anchor="middle" font-size="11" fill="#2a2520" font-family="Georgia" font-weight="600">Purzer</text>
-        <rect x="72" y="74" width="16" height="8" rx="2" fill="#c8b89a"/>
-        <line x1="80" y1="68" x2="80" y2="74" stroke="#e8a040" stroke-width="1.5"/>
-      </svg>
+      <div class="catalog-product-box">
+        <div class="p-bottle p-candle">
+          <div class="p-wick"></div>
+          <div class="p-body"><div class="p-label"><span class="p-label-type">Fragrance Candle</span><span class="p-label-brand">Purzer</span></div></div>
+        </div>
+      </div>
       <div class="catalog-card-name">프라그란스 캔들</div>
     </div>
+    <!-- 트래블 틴 캔들 -->
     <div class="catalog-card reveal reveal-delay-1">
-      <svg viewBox="0 0 160 240" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="80" cy="160" rx="55" ry="18" fill="#d4c4a8"/>
-        <rect x="30" y="110" width="100" height="52" rx="4" fill="#f0ebe3"/>
-        <ellipse cx="80" cy="110" rx="50" ry="16" fill="#f5f0e8"/>
-        <rect x="42" y="120" width="76" height="30" fill="transparent"/>
-        <text x="80" y="130" text-anchor="middle" font-size="5" fill="#8a7e6e" letter-spacing="0.5">TRAVEL TIN CANDLE</text>
-        <text x="80" y="144" text-anchor="middle" font-size="10" fill="#2a2520" font-family="Georgia" font-weight="600">Purzer</text>
-      </svg>
+      <div class="catalog-product-box">
+        <div class="p-bottle p-tin">
+          <div class="p-lid"></div>
+          <div class="p-body"><div class="p-label"><span class="p-label-type">Travel Tin Candle</span><span class="p-label-brand">Purzer</span></div></div>
+        </div>
+      </div>
       <div class="catalog-card-name">트래블 틴 캔들</div>
     </div>
+    <!-- 인센스 스틱 -->
     <div class="catalog-card reveal reveal-delay-2">
-      <svg viewBox="0 0 160 240" xmlns="http://www.w3.org/2000/svg">
-        <rect x="75" y="20" width="10" height="200" rx="5" fill="url(#stick1)"/>
-        <text x="80" y="130" text-anchor="middle" font-size="7" fill="#8a7e6e" transform="rotate(-90 80 130)" font-family="Georgia">Purzer</text>
-        <defs><linearGradient id="stick1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d4c4a8"/><stop offset="100%" stop-color="#b8a888"/></linearGradient></defs>
-      </svg>
+      <div class="catalog-product-box">
+        <div class="p-bottle p-stick-type"><div class="p-body"></div></div>
+      </div>
       <div class="catalog-card-name">인센스 스틱</div>
     </div>
+    <!-- 인센스 콘 -->
     <div class="catalog-card reveal reveal-delay-3">
-      <svg viewBox="0 0 160 240" xmlns="http://www.w3.org/2000/svg">
-        <rect x="35" y="80" width="90" height="90" rx="20" fill="#fafafa"/>
-        <rect x="50" y="105" width="60" height="40" fill="transparent"/>
-        <text x="80" y="118" text-anchor="middle" font-size="5" fill="#8a7e6e" letter-spacing="0.5">INCENSE CONE</text>
-        <text x="80" y="133" text-anchor="middle" font-size="10" fill="#2a2520" font-family="Georgia" font-weight="600">Purzer</text>
-        <text x="80" y="148" text-anchor="middle" font-size="5" fill="#8a7e6e">20 Pieces</text>
-      </svg>
+      <div class="catalog-product-box">
+        <div class="p-bottle p-cone">
+          <div class="p-body"><div class="p-label"><span class="p-label-type">Incense Cone</span><span class="p-label-brand">Purzer</span><span class="p-label-sub">20 Pieces</span></div></div>
+        </div>
+      </div>
       <div class="catalog-card-name">인센스 콘</div>
     </div>
+    <!-- 클로젯 택 -->
     <div class="catalog-card reveal">
-      <svg viewBox="0 0 160 240" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="105" cy="40" r="18" fill="none" stroke="#c8b89a" stroke-width="3"/>
-        <rect x="45" y="55" width="70" height="160" rx="4" fill="#d4c4a8"/>
-        <rect x="55" y="100" width="50" height="50" fill="#fafafa"/>
-        <text x="80" y="120" text-anchor="middle" font-size="7" fill="#8a7e6e" font-family="Georgia">Purzer</text>
-        <text x="80" y="135" text-anchor="middle" font-size="4.5" fill="#8a7e6e" letter-spacing="0.5">CLOSET TAG</text>
-      </svg>
+      <div class="catalog-product-box">
+        <div class="p-bottle p-hanger">
+          <div class="p-hook"></div>
+          <div class="p-body"><div class="p-label"><span class="p-label-brand">Purzer</span></div></div>
+        </div>
+      </div>
       <div class="catalog-card-name">클로젯 택</div>
     </div>
+    <!-- 왁 트리머 -->
     <div class="catalog-card reveal reveal-delay-1">
-      <svg viewBox="0 0 160 240" xmlns="http://www.w3.org/2000/svg">
-        <rect x="25" y="70" width="110" height="100" rx="3" fill="#c8b89a"/>
-        <rect x="35" y="95" width="90" height="45" fill="#fafafa"/>
-        <text x="80" y="115" text-anchor="middle" font-size="11" fill="#2a2520" font-family="Georgia" font-weight="600">Purzer</text>
-        <text x="80" y="130" text-anchor="middle" font-size="5" fill="#8a7e6e" letter-spacing="0.5">WAX TRIMMER</text>
-      </svg>
+      <div class="catalog-product-box">
+        <div class="p-bottle p-box">
+          <div class="p-body"><div class="p-label"><span class="p-label-brand">Purzer</span></div></div>
+        </div>
+      </div>
       <div class="catalog-card-name">왁 트리머</div>
     </div>
+    <!-- 인센스 스탠드 -->
     <div class="catalog-card reveal reveal-delay-2">
-      <svg viewBox="0 0 160 240" xmlns="http://www.w3.org/2000/svg">
-        <rect x="55" y="60" width="50" height="140" rx="3" fill="#c8b89a"/>
-        <rect x="45" y="200" width="70" height="8" rx="2" fill="#b8a888"/>
-        <rect x="60" y="110" width="40" height="40" fill="#fafafa"/>
-        <text x="80" y="128" text-anchor="middle" font-size="8" fill="#2a2520" font-family="Georgia" font-weight="600">Purzer</text>
-        <text x="80" y="142" text-anchor="middle" font-size="4.5" fill="#8a7e6e" letter-spacing="0.3">INCENSE STAND</text>
-      </svg>
+      <div class="catalog-product-box">
+        <div class="p-bottle p-stand">
+          <div class="p-body"><div class="p-label"><span class="p-label-brand">Purzer</span></div></div>
+          <div class="p-base"></div>
+        </div>
+      </div>
       <div class="catalog-card-name">인센스 스탠드</div>
     </div>
+    <!-- 프라그란스 오일 버너 -->
     <div class="catalog-card reveal reveal-delay-3">
-      <svg viewBox="0 0 160 240" xmlns="http://www.w3.org/2000/svg">
-        <rect x="20" y="80" width="80" height="100" rx="3" fill="#c8b89a"/>
-        <rect x="100" y="60" width="40" height="140" rx="3" fill="#d4c4a8"/>
-        <rect x="105" y="90" width="30" height="8" rx="4" fill="#fafafa"/>
-        <rect x="105" y="104" width="30" height="8" rx="4" fill="#fafafa"/>
-        <rect x="30" y="105" width="60" height="40" fill="#fafafa"/>
-        <text x="60" y="122" text-anchor="middle" font-size="8" fill="#2a2520" font-family="Georgia" font-weight="600">Purzer</text>
-        <text x="60" y="136" text-anchor="middle" font-size="4" fill="#8a7e6e" letter-spacing="0.3">OIL BURNER</text>
-      </svg>
+      <div class="catalog-product-box">
+        <div class="p-bottle p-burner">
+          <div class="p-body"><div class="p-label"><span class="p-label-brand">Purzer</span></div></div>
+          <div class="p-side"></div>
+        </div>
+      </div>
       <div class="catalog-card-name">프라그란스 오일 버너</div>
     </div>
   </div>
