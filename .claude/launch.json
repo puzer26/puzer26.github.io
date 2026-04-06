@@ -3,9 +3,9 @@
   "configurations": [
     {
       "name": "puzer-site",
-      "runtimeExecutable": "/usr/bin/ruby",
-      "runtimeArgs": ["-e", "require 'webrick';s=WEBrick::HTTPServer.new(:Port=>8090,:DocumentRoot=>'/Users/chacha/Documents/puzer');trap('INT'){s.shutdown};s.start"],
-      "port": 8090
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8092", "--directory", "/Users/chacha/Documents/puzer"],
+      "port": 8092
     }
   ]
 }

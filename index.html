@@ -38,27 +38,28 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --black: #000000;
-    --bg: #0a0a0a;
-    --dark-surface: #111111;
-    --dark-card: #161616;
-    --white: #ffffff;
-    --off-white: #f0f0f0;
-    --sand: #c8b89a;
-    --sand-dim: rgba(200,184,154,0.4);
+    --black: #2a2520;
+    --bg: #f4efe7;
+    --dark-surface: #ece5da;
+    --dark-card: #e8e0d4;
+    --white: #f4efe7;
+    --off-white: #faf8f5;
+    --sand: #a08a6c;
+    --sand-dim: rgba(160,138,108,0.4);
     --stone: #8a7e6e;
-    --text-dim: rgba(255,255,255,0.5);
-    --text-dimmer: rgba(255,255,255,0.3);
-    --border: rgba(255,255,255,0.08);
-    --border-light: rgba(255,255,255,0.12);
+    --text-primary: #2a2520;
+    --text-dim: rgba(42,37,32,0.55);
+    --text-dimmer: rgba(42,37,32,0.35);
+    --border: rgba(42,37,32,0.08);
+    --border-light: rgba(42,37,32,0.12);
   }
 
   html { scroll-behavior: smooth; overflow-x: hidden; }
 
   body {
     font-family: 'Noto Sans KR', -apple-system, sans-serif;
-    background: var(--black);
-    color: var(--white);
+    background: var(--bg);
+    color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
   }
@@ -66,7 +67,7 @@
   /* ─── LOADER ─── */
   .loader {
     position: fixed; inset: 0;
-    background: var(--black);
+    background: var(--bg);
     z-index: 10000;
     display: flex; align-items: center; justify-content: center;
     flex-direction: column; gap: 20px;
@@ -74,7 +75,7 @@
   }
   .loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
   .loader-brand {
-    color: var(--white);
+    color: var(--text-primary);
     font-size: clamp(3rem, 8vw, 6rem);
     font-weight: 900;
     letter-spacing: 0.35em;
@@ -99,33 +100,33 @@
   }
   nav.scrolled {
     padding: 20px 48px;
-    background: rgba(0,0,0,0.85);
+    background: rgba(244,239,231,0.9);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
   }
   .nav-logo {
     font-size: 1.1rem; font-weight: 900;
-    letter-spacing: 0.25em; color: var(--white);
+    letter-spacing: 0.25em; color: var(--text-primary);
     text-decoration: none; text-transform: uppercase;
   }
   .nav-right { display: flex; align-items: center; gap: 40px; }
   .nav-links { display: flex; gap: 36px; list-style: none; }
   .nav-links a {
-    color: rgba(255,255,255,0.6);
+    color: var(--text-dim);
     text-decoration: none;
     font-size: 0.7rem; font-weight: 400;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     transition: color 0.4s;
   }
-  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover { color: var(--text-primary); }
   .hamburger {
     display: none; flex-direction: column; gap: 6px; cursor: pointer;
     padding: 4px;
   }
   .hamburger span {
     width: 24px; height: 1.5px;
-    background: var(--white);
+    background: var(--text-primary);
     transition: 0.3s;
     display: block;
   }
@@ -133,7 +134,7 @@
   /* ─── HERO ─── */
   .hero {
     min-height: 100vh;
-    background: var(--black);
+    background: var(--bg);
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
     position: relative; overflow: hidden;
@@ -143,7 +144,7 @@
     width: min(85vw, 1100px);
     aspect-ratio: 16/9;
     border-radius: 24px;
-    background: linear-gradient(145deg, #1a1815 0%, #0d0b09 40%, #1e1a15 100%);
+    background: linear-gradient(145deg, #2a2520 0%, #1e1a15 40%, #352f28 100%);
     position: relative;
     overflow: hidden;
     margin-bottom: 64px;
@@ -174,7 +175,7 @@
   }
   .hero-visual-brand {
     font-size: clamp(3rem, 8vw, 7rem);
-    font-weight: 900; color: var(--white);
+    font-weight: 900; color: #faf8f5;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     line-height: 1;
@@ -192,7 +193,7 @@
   }
   .hero-headline h1 {
     font-size: clamp(2rem, 4.5vw, 4rem);
-    font-weight: 900; color: var(--white);
+    font-weight: 900; color: var(--text-primary);
     line-height: 1.4;
     letter-spacing: -0.02em;
     margin-bottom: 20px;
@@ -215,12 +216,12 @@
     opacity: 0; animation: fadeUp 1s ease forwards 2.4s;
   }
   .hero-scroll span {
-    font-size: 0.55rem; color: rgba(255,255,255,0.3);
+    font-size: 0.55rem; color: var(--text-dimmer);
     letter-spacing: 0.3em; text-transform: uppercase;
   }
   .scroll-line {
     width: 1px; height: 40px;
-    background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+    background: linear-gradient(to bottom, var(--text-dimmer), transparent);
     animation: scrollPulse 2s ease-in-out infinite;
   }
   @keyframes scrollPulse {
@@ -269,7 +270,7 @@
   .stat-item { text-align: center; }
   .stat-number {
     font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 900; color: var(--white);
+    font-weight: 900; color: var(--text-primary);
     line-height: 1; margin-bottom: 12px;
     letter-spacing: -0.02em;
   }
@@ -289,7 +290,7 @@
   .brand-story .quote {
     font-size: clamp(1.8rem, 3.5vw, 3rem);
     font-weight: 900; line-height: 1.7;
-    letter-spacing: -0.01em; color: var(--white);
+    letter-spacing: -0.01em; color: var(--text-primary);
     margin-bottom: 48px;
   }
   .brand-story .quote em {
@@ -311,7 +312,7 @@
   }
   .pillars-header h2 {
     font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 900; color: var(--white);
+    font-weight: 900; color: var(--text-primary);
     letter-spacing: -0.01em;
   }
   .pillars-grid {
@@ -319,7 +320,7 @@
     gap: 1px;
   }
   .pillar-card {
-    background: var(--dark-surface);
+    background: var(--off-white);
     padding: 60px 44px;
     position: relative;
     transition: all 0.6s cubic-bezier(0.4,0,0.2,1);
@@ -327,20 +328,20 @@
     border: 1px solid var(--border);
   }
   .pillar-card:hover {
-    background: var(--sand);
+    background: var(--black);
     transform: translateY(-4px);
   }
-  .pillar-card:hover * { color: var(--black) !important; }
+  .pillar-card:hover * { color: #f4efe7 !important; }
   .pillar-num {
     font-size: 0.6rem; color: var(--sand);
     letter-spacing: 0.25em; font-weight: 400;
     margin-bottom: 32px;
   }
-  .pillar-card:hover .pillar-num { color: rgba(0,0,0,0.4) !important; }
+  .pillar-card:hover .pillar-num { color: var(--sand) !important; }
   .pillar-title-en {
     font-size: 1.15rem; font-weight: 700;
     letter-spacing: 0.02em; margin-bottom: 8px;
-    color: var(--white);
+    color: var(--text-primary);
     transition: color 0.5s;
   }
   .pillar-title-kr {
@@ -368,7 +369,7 @@
     font-size: clamp(3rem, 8vw, 7rem);
     font-weight: 900;
     color: transparent;
-    -webkit-text-stroke: 1px rgba(255,255,255,0.07);
+    -webkit-text-stroke: 1px rgba(42,37,32,0.08);
     letter-spacing: 0.06em;
     text-transform: uppercase;
     white-space: nowrap;
@@ -390,7 +391,7 @@
   .product-lines-header h2 {
     font-size: clamp(2.2rem, 4.5vw, 3.5rem);
     font-weight: 900; text-transform: uppercase;
-    letter-spacing: 0.06em; color: var(--white);
+    letter-spacing: 0.06em; color: var(--text-primary);
     margin-bottom: 16px;
   }
   .product-lines-header p {
@@ -411,13 +412,13 @@
     position: relative; overflow: hidden;
   }
   .line-visual-scent {
-    background: linear-gradient(145deg, #1a1714 0%, #0d0b08 100%);
+    background: linear-gradient(145deg, #2a2520 0%, #1e1a15 100%);
   }
   .line-visual-light {
-    background: linear-gradient(145deg, #1c1b18 0%, #0e0d0a 100%);
+    background: linear-gradient(145deg, #e8e0d4 0%, #d8cec0 100%);
   }
   .line-visual-sound {
-    background: linear-gradient(145deg, #141618 0%, #0a0c0e 100%);
+    background: linear-gradient(145deg, #282c30 0%, #1a1e22 100%);
   }
 
   .line-icon {
@@ -434,7 +435,7 @@
     position: absolute;
     width: 240px; height: 240px;
     border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.04);
+    border: 1px solid rgba(200,184,154,0.12);
     animation: orbitSpin 18s linear infinite;
   }
   .line-orbit-2 {
@@ -448,7 +449,7 @@
     display: flex; flex-direction: column;
     justify-content: center;
     padding: 80px 80px;
-    background: var(--dark-surface);
+    background: var(--off-white);
     border: 1px solid var(--border);
   }
   .line-number {
@@ -459,7 +460,7 @@
   .line-name {
     font-size: clamp(1.6rem, 2.8vw, 2.4rem);
     font-weight: 900; letter-spacing: 0.06em;
-    text-transform: uppercase; color: var(--white);
+    text-transform: uppercase; color: var(--text-primary);
     margin-bottom: 6px;
   }
   .line-name-kr {
@@ -491,9 +492,9 @@
     transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
   }
   .line-product-tag:hover {
-    background: var(--white);
-    color: var(--black);
-    border-color: var(--white);
+    background: var(--text-primary);
+    color: var(--bg);
+    border-color: var(--text-primary);
   }
 
   /* ─── FRAGRANCE LINEUP ─── */
@@ -507,7 +508,7 @@
   .fragrances-header h2 {
     font-size: clamp(2.2rem, 4.5vw, 3.5rem);
     font-weight: 900; text-transform: uppercase;
-    letter-spacing: 0.06em; color: var(--white);
+    letter-spacing: 0.06em; color: var(--text-primary);
   }
 
   .fragrance-list {
@@ -526,7 +527,7 @@
   }
   .fragrance-item:hover {
     padding-left: 24px;
-    background: rgba(255,255,255,0.02);
+    background: rgba(42,37,32,0.03);
   }
   .frag-num {
     font-size: 0.72rem; color: var(--sand);
@@ -535,7 +536,7 @@
   }
   .frag-name-en {
     font-size: 1.05rem; font-weight: 700;
-    color: var(--white); letter-spacing: 0.04em;
+    color: var(--text-primary); letter-spacing: 0.04em;
     text-transform: uppercase; margin-bottom: 8px;
   }
   .frag-name-kr {
@@ -573,7 +574,7 @@
   }
   .product-catalog-header h2 {
     font-size: clamp(2.8rem, 5.5vw, 4.5rem);
-    font-weight: 900; color: var(--white);
+    font-weight: 900; color: var(--text-primary);
     letter-spacing: 0.05em;
     text-transform: uppercase;
   }
@@ -611,7 +612,7 @@
     display: flex; flex-direction: column;
     justify-content: center;
     padding: 100px 80px;
-    background: var(--black);
+    background: #2a2520;
   }
   .chapter-label {
     font-size: 0.62rem; color: var(--sand);
@@ -620,7 +621,7 @@
   }
   .chapter-title {
     font-size: clamp(2.2rem, 4vw, 3.5rem);
-    font-weight: 900; color: var(--white);
+    font-weight: 900; color: #f4efe7;
     letter-spacing: 0.03em; margin-bottom: 14px;
   }
   .chapter-subtitle {
@@ -629,18 +630,18 @@
     letter-spacing: 0.06em;
   }
   .chapter-desc {
-    font-size: 0.85rem; color: var(--text-dim);
+    font-size: 0.85rem; color: rgba(255,255,255,0.5);
     line-height: 2.2; font-weight: 300;
     margin-bottom: 48px; max-width: 460px;
   }
   .chapter-detail {
-    font-size: 0.76rem; color: var(--text-dimmer);
+    font-size: 0.76rem; color: rgba(255,255,255,0.35);
     line-height: 2.1; font-weight: 300;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid rgba(255,255,255,0.08);
     padding-top: 28px;
   }
   .chapter-visual {
-    background: linear-gradient(145deg, #1a1714 0%, #0e0c08 100%);
+    background: linear-gradient(145deg, #e8e0d4 0%, #d4c8b8 100%);
     display: flex; align-items: center; justify-content: center;
     position: relative; overflow: hidden;
   }
@@ -650,7 +651,7 @@
     filter: grayscale(0.5);
   }
   .chapter-visual-text {
-    font-size: 0.72rem; color: var(--text-dimmer);
+    font-size: 0.72rem; color: var(--text-primary);
     letter-spacing: 0.35em; text-transform: uppercase;
     font-weight: 400;
   }
@@ -665,7 +666,7 @@
   .flagship h2 {
     font-size: clamp(1.4rem, 2.8vw, 2rem);
     font-weight: 700; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--white);
+    text-transform: uppercase; color: var(--text-primary);
     margin-bottom: 20px;
   }
   .flagship .flagship-desc {
@@ -674,143 +675,308 @@
     margin-bottom: 60px;
   }
 
-  /* ─── STORE GRAPHIC ─── */
-  .store-graphic {
-    width: min(90vw, 900px);
+  /* ─── 3D STORE INTERIOR ─── */
+  .store-3d {
+    width: min(92vw, 960px);
     margin: 0 auto 80px;
-    position: relative;
+    perspective: 1200px;
   }
-  .store-building {
+  .store-scene {
     width: 100%;
-    aspect-ratio: 2.4/1;
-    background: linear-gradient(180deg, #181614 0%, #121010 100%);
-    border-radius: 20px 20px 0 0;
+    aspect-ratio: 1.8/1;
     position: relative;
+    transform-style: preserve-3d;
     overflow: hidden;
-    border: 1px solid var(--border-light);
-    border-bottom: none;
+    border-radius: 16px;
+    background: linear-gradient(180deg, #e8e2d8 0%, #ddd5c8 50%, #d0c8ba 100%);
+    box-shadow: 0 20px 60px rgba(42,37,32,0.15);
   }
-  /* Roof accent */
-  .store-building::before {
-    content: ''; position: absolute;
-    top: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, transparent, var(--sand), transparent);
-  }
-  /* Sign */
-  .store-sign {
+
+  /* Ceiling */
+  .store-ceiling {
     position: absolute;
-    top: 18%; left: 50%; transform: translateX(-50%);
-    text-align: center;
+    top: 0; left: 0; right: 0;
+    height: 22%;
+    background: linear-gradient(180deg, #eae4da 0%, #e2dbd0 100%);
+    border-bottom: 2px solid rgba(42,37,32,0.06);
   }
-  .store-sign-brand {
-    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-    font-weight: 900; color: var(--white);
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    text-shadow: 0 0 40px rgba(200,184,154,0.3);
-  }
-  .store-sign-sub {
-    font-size: 0.55rem; color: var(--sand-dim);
-    letter-spacing: 0.4em; margin-top: 6px;
-    text-transform: uppercase;
-  }
-  /* Windows row */
-  .store-windows {
+  /* Ceiling beam */
+  .ceiling-beam {
     position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 58%;
-    display: flex;
-    padding: 0 6%;
-    gap: 2%;
+    bottom: 0; height: 8px;
+    background: #d8d0c4;
+    border-bottom: 1px solid rgba(42,37,32,0.08);
   }
-  .store-window {
-    flex: 1;
-    background: linear-gradient(180deg, rgba(200,184,154,0.06) 0%, rgba(200,184,154,0.02) 100%);
-    border-radius: 12px 12px 0 0;
-    border: 1px solid rgba(200,184,154,0.1);
-    border-bottom: none;
-    position: relative;
-    overflow: hidden;
-  }
-  .store-window::after {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(180deg, transparent 60%, rgba(200,184,154,0.04) 100%);
-  }
-  /* Window interior shelves */
-  .window-shelf {
-    position: absolute; left: 12%; right: 12%;
-    height: 1px;
-    background: rgba(200,184,154,0.12);
-  }
-  .window-shelf:nth-child(1) { top: 35%; }
-  .window-shelf:nth-child(2) { top: 60%; }
-  .window-shelf:nth-child(3) { top: 82%; }
-  /* Mini product silhouettes */
-  .window-product {
+  .ceiling-beam.left { left: 12%; width: 20%; }
+  .ceiling-beam.right { right: 12%; width: 20%; }
+
+  /* Track lights */
+  .track-rail {
     position: absolute;
-    background: rgba(200,184,154,0.15);
+    top: 14%; height: 3px;
+    background: #1e1a15;
     border-radius: 2px;
+    z-index: 10;
   }
-  /* Door — center window */
-  .store-window.door {
-    flex: 0.7;
-    background: linear-gradient(180deg, rgba(200,184,154,0.04) 0%, rgba(200,184,154,0.01) 100%);
-    border-radius: 16px 16px 0 0;
+  .track-rail.r1 { left: 18%; width: 64%; }
+  .track-rail.r2 { left: 25%; width: 50%; top: 8%; }
+  .track-light {
+    position: absolute; top: 100%;
+    width: 8px; height: 20px;
+    background: linear-gradient(180deg, #1e1a15 0%, #2a2520 100%);
+    border-radius: 0 0 3px 3px;
   }
-  .store-window.door::before {
+  .track-light::after {
     content: ''; position: absolute;
-    top: 50%; left: 50%; transform: translate(-50%, -50%);
-    width: 4px; height: 28px;
-    background: var(--sand-dim);
-    border-radius: 2px;
-  }
-  /* Floor / sidewalk */
-  .store-floor {
-    width: 100%;
-    height: 24px;
-    background: linear-gradient(180deg, #1a1816 0%, #0e0c0a 100%);
-    border: 1px solid var(--border-light);
-    border-top: none;
-    border-radius: 0 0 4px 4px;
-  }
-  /* Warm glow under building */
-  .store-glow {
-    position: absolute;
-    bottom: 20px; left: 50%; transform: translateX(-50%);
-    width: 70%; height: 60px;
-    background: radial-gradient(ellipse, rgba(200,184,154,0.06) 0%, transparent 70%);
+    bottom: -30px; left: 50%; transform: translateX(-50%);
+    width: 40px; height: 30px;
+    background: radial-gradient(ellipse, rgba(220,195,150,0.12) 0%, transparent 70%);
     pointer-events: none;
   }
-  /* Trees */
-  .store-tree {
+
+  /* Back wall */
+  .back-wall {
     position: absolute;
-    bottom: 24px;
-    display: flex; flex-direction: column; align-items: center;
+    top: 22%; left: 15%; right: 15%;
+    height: 50%;
+    background: linear-gradient(180deg, #4a3e30 0%, #3e3428 100%);
+    border-radius: 2px;
+    z-index: 2;
   }
-  .store-tree.left { left: 3%; }
-  .store-tree.right { right: 3%; }
-  .tree-top {
-    width: 28px; height: 52px;
-    background: rgba(200,184,154,0.08);
-    border-radius: 50% 50% 8px 8px;
+
+  /* Display shelf unit (back wall) */
+  .shelf-unit {
+    position: absolute;
+    top: 5%; left: 8%; right: 8%; bottom: 5%;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 2px;
+    z-index: 3;
   }
-  .tree-trunk {
-    width: 4px; height: 16px;
-    background: rgba(200,184,154,0.12);
+  .shelf-cell {
+    background: rgba(200,180,150,0.08);
+    border: 1px solid rgba(200,180,150,0.06);
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 4px;
+  }
+  /* Center cells with warm backlight glow */
+  .shelf-cell.lit {
+    background: linear-gradient(180deg, rgba(220,190,140,0.15) 0%, rgba(200,170,120,0.08) 100%);
+    box-shadow: inset 0 0 20px rgba(220,190,140,0.06);
+  }
+  /* Product silhouettes on shelves */
+  .shelf-product {
+    width: 8px; height: 18px;
+    background: rgba(60,50,38,0.6);
+    border-radius: 2px 2px 0 0;
+    margin: 0 2px;
+  }
+  .shelf-product.wide { width: 14px; height: 14px; border-radius: 2px; }
+  .shelf-product.tall { width: 6px; height: 24px; }
+  .shelf-product.round { width: 12px; height: 12px; border-radius: 50%; }
+
+  /* Center glass window/mirror */
+  .center-glass {
+    position: absolute;
+    top: 15%; left: 30%; right: 30%;
+    height: 45%;
+    background: linear-gradient(180deg, rgba(180,200,180,0.08) 0%, rgba(140,160,140,0.04) 100%);
+    border: 1px solid rgba(200,180,150,0.1);
+    z-index: 4;
+    overflow: hidden;
+  }
+  .center-glass::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 50%, rgba(255,255,255,0.02) 100%);
+  }
+
+  /* Warm accent light strip */
+  .accent-light {
+    position: absolute;
+    left: 8%; right: 8%;
+    height: 4px;
+    background: linear-gradient(90deg, rgba(220,190,140,0.5), rgba(240,210,160,0.7), rgba(220,190,140,0.5));
+    border-radius: 2px;
+    box-shadow: 0 2px 20px rgba(220,190,140,0.2), 0 4px 40px rgba(220,190,140,0.1);
+    z-index: 5;
+  }
+  .accent-light.top { top: 3%; }
+  .accent-light.mid { top: 48%; height: 2px; opacity: 0.5; }
+
+  /* Left perspective wall */
+  .left-wall {
+    position: absolute;
+    top: 22%; left: 0; width: 15%;
+    height: 50%;
+    background: linear-gradient(90deg, #c8bfb0 0%, #bab0a2 60%, #a89e90 100%);
+    z-index: 1;
+  }
+  .left-wall-shelf {
+    position: absolute; right: 0;
+    width: 80%; height: 1px;
+    background: rgba(42,37,32,0.15);
+  }
+  .left-wall-shelf:nth-child(1) { top: 20%; }
+  .left-wall-shelf:nth-child(2) { top: 40%; }
+  .left-wall-shelf:nth-child(3) { top: 60%; }
+  .left-wall-shelf:nth-child(4) { top: 80%; }
+
+  /* Right perspective wall */
+  .right-wall {
+    position: absolute;
+    top: 22%; right: 0; width: 15%;
+    height: 50%;
+    background: linear-gradient(270deg, #d0c8ba 0%, #c0b8aa 60%, #b0a898 100%);
+    z-index: 1;
+  }
+
+  /* Left glass partition */
+  .glass-partition {
+    position: absolute;
+    top: 24%; left: 3%; width: 10%;
+    height: 46%;
+    border: 1px solid rgba(42,37,32,0.1);
+    background: linear-gradient(180deg, rgba(200,220,240,0.04) 0%, rgba(180,200,220,0.02) 100%);
+    z-index: 6;
+  }
+  .glass-partition .glass-frame {
+    position: absolute; left: 0; right: 0;
+    height: 1px; background: rgba(42,37,32,0.15);
+  }
+  .glass-partition .glass-frame:nth-child(1) { top: 33%; }
+  .glass-partition .glass-frame:nth-child(2) { top: 66%; }
+  .glass-frame-v {
+    position: absolute; top: 0; bottom: 0;
+    width: 1px; background: rgba(42,37,32,0.12);
+    left: 50%;
+  }
+
+  /* Floor */
+  .store-floor-3d {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 28%;
+    background: linear-gradient(180deg, #d4ccbe 0%, #c8c0b2 50%, #beb6a8 100%);
+    z-index: 5;
+  }
+  /* Floor reflection lines */
+  .floor-line {
+    position: absolute; width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,0.08);
+  }
+  .floor-line:nth-child(1) { top: 15%; }
+  .floor-line:nth-child(2) { top: 45%; }
+  .floor-line:nth-child(3) { top: 75%; }
+
+  /* Center display counter */
+  .display-counter {
+    position: absolute;
+    bottom: 12%; left: 22%; right: 22%;
+    height: 22%;
+    z-index: 8;
+    display: flex;
+    gap: 1%;
+  }
+  .counter-block {
+    flex: 1;
+    background: linear-gradient(180deg, #9a7e5c 0%, #8a7050 40%, #7a6244 100%);
+    border-radius: 3px 3px 0 0;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(42,37,32,0.2);
+  }
+  .counter-block::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.1), transparent);
+    border-radius: 3px 3px 0 0;
+  }
+  .counter-block.center {
+    flex: 1.3;
+    background: linear-gradient(180deg, #8a7050 0%, #7a6244 100%);
+  }
+  .counter-block.side-left { border-radius: 3px 0 0 0; }
+  .counter-block.side-right { border-radius: 0 3px 0 0; }
+  /* Counter gap / entrance */
+  .counter-gap {
+    flex: 0.4;
+    background: transparent;
+  }
+  /* Counter surface highlights */
+  .counter-surface {
+    position: absolute;
+    top: 2px; left: 8%; right: 8%;
+    height: 3px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 1px;
+  }
+
+  /* Left column */
+  .store-column {
+    position: absolute;
+    width: 4%;
+    top: 18%; height: 54%;
+    background: linear-gradient(90deg, #ddd5c8 0%, #d0c8ba 50%, #c8c0b2 100%);
+    z-index: 7;
+    border-radius: 2px;
+  }
+  .store-column.col-left { left: 13%; }
+  .store-column.col-right { right: 13%; }
+  .store-column::before {
+    content: ''; position: absolute;
+    bottom: 0; left: -20%; right: -20%; height: 6px;
+    background: #c8c0b2;
+    border-radius: 2px;
+  }
+
+  /* Right wall sconce */
+  .wall-sconce {
+    position: absolute;
+    right: 5%; top: 35%;
+    width: 6px; height: 28px;
+    background: #1e1a15;
+    border-radius: 2px;
+    z-index: 7;
+  }
+  .wall-sconce::after {
+    content: ''; position: absolute;
+    bottom: -15px; left: 50%; transform: translateX(-50%);
+    width: 24px; height: 15px;
+    background: radial-gradient(ellipse, rgba(220,190,140,0.12), transparent);
+  }
+
+  /* Brand sign on back wall */
+  .store-brand-sign {
+    position: absolute;
+    top: 26%; left: 50%; transform: translateX(-50%);
+    z-index: 6;
+    text-align: center;
+    pointer-events: none;
+  }
+  .store-brand-sign span {
+    font-size: clamp(0.6rem, 1.2vw, 0.9rem);
+    font-weight: 900; color: rgba(220,200,170,0.7);
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(220,190,140,0.3);
   }
 
   .flagship-info {
     display: inline-flex; flex-direction: column;
     align-items: center; gap: 14px;
     padding: 44px 64px;
-    background: var(--dark-surface);
+    background: var(--off-white);
     border: 1px solid var(--border-light);
     border-radius: 12px;
   }
   .flagship-info .store-name {
     font-size: 0.75rem; font-weight: 700;
     letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--white);
+    color: var(--text-primary);
   }
   .flagship-info .store-addr {
     font-size: 0.78rem; color: var(--text-dim);
@@ -828,17 +994,20 @@
     position: relative; overflow: hidden;
     border-top: 1px solid var(--border);
   }
+  .cta-section {
+    background: #2a2520;
+  }
   .cta-section::before {
     content: ''; position: absolute;
     width: 800px; height: 800px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(200,184,154,0.04) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(200,184,154,0.06) 0%, transparent 70%);
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
   }
   .cta-quote {
     font-size: clamp(1.4rem, 3vw, 2.4rem);
-    font-weight: 300; color: var(--text-dim);
+    font-weight: 300; color: rgba(255,255,255,0.5);
     line-height: 1.8;
     letter-spacing: 0.02em;
     margin-bottom: 20px;
@@ -846,7 +1015,7 @@
   }
   .cta-brand {
     font-size: clamp(3.5rem, 9vw, 7rem);
-    font-weight: 900; color: var(--white);
+    font-weight: 900; color: #f4efe7;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     margin-bottom: 56px;
@@ -856,7 +1025,7 @@
     display: inline-block;
     padding: 20px 64px;
     border: 1px solid rgba(255,255,255,0.2);
-    color: var(--white);
+    color: #f4efe7;
     text-decoration: none;
     font-size: 0.78rem;
     letter-spacing: 0.28em;
@@ -868,17 +1037,18 @@
   }
   .cta-btn::before {
     content: ''; position: absolute; inset: 0;
-    background: var(--white);
+    background: #f4efe7;
     transform: translateY(101%);
     transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
   }
-  .cta-btn:hover { color: var(--black); }
+  .cta-btn:hover { color: #2a2520; }
   .cta-btn:hover::before { transform: translateY(0); }
   .cta-btn span { position: relative; z-index: 1; }
 
   /* ─── FOOTER ─── */
   footer {
-    border-top: 1px solid var(--border);
+    background: #2a2520;
+    border-top: 1px solid rgba(255,255,255,0.06);
     padding: 72px 48px 40px;
   }
   .footer-top {
@@ -887,7 +1057,7 @@
   }
   .footer-brand {
     font-size: 1.1rem; font-weight: 900;
-    color: var(--white); letter-spacing: 0.28em;
+    color: #f4efe7; letter-spacing: 0.28em;
     text-transform: uppercase;
   }
   .footer-brand-sub {
@@ -903,29 +1073,29 @@
   }
   .footer-col a {
     display: block; font-size: 0.74rem;
-    color: var(--text-dimmer);
+    color: rgba(255,255,255,0.35);
     text-decoration: none; margin-bottom: 12px;
     font-weight: 300; transition: color 0.3s;
   }
-  .footer-col a:hover { color: var(--white); }
+  .footer-col a:hover { color: #f4efe7; }
   .footer-bottom {
-    border-top: 1px solid var(--border);
+    border-top: 1px solid rgba(255,255,255,0.06);
     padding-top: 28px;
     display: flex; justify-content: space-between;
     align-items: center;
   }
   .footer-bottom span {
-    font-size: 0.62rem; color: rgba(255,255,255,0.15);
+    font-size: 0.62rem; color: rgba(255,255,255,0.2);
     letter-spacing: 0.1em;
   }
   .footer-social { display: flex; gap: 24px; }
   .footer-social a {
-    font-size: 0.65rem; color: rgba(255,255,255,0.25);
+    font-size: 0.65rem; color: rgba(255,255,255,0.3);
     text-decoration: none; letter-spacing: 0.12em;
     text-transform: uppercase; font-weight: 400;
     transition: color 0.3s;
   }
-  .footer-social a:hover { color: var(--white); }
+  .footer-social a:hover { color: #f4efe7; }
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 1024px) {
@@ -958,7 +1128,7 @@
     .pc-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 16px; }
     .chapter-content { padding: 80px 32px; }
     .flagship { padding: 120px 24px; }
-    .store-building { border-radius: 14px 14px 0 0; }
+    .store-scene { border-radius: 12px; }
     .cta-section { padding: 140px 24px; }
     .footer-top { flex-direction: column; gap: 44px; }
     .footer-cols { gap: 36px; }
@@ -1309,62 +1479,142 @@
     향을 체험하고 도시의 공기를 느끼는 공간,<br>도시의 향을 기록하는 향 라이브러리
   </p>
 
-  <!-- STORE GRAPHIC -->
-  <div class="store-graphic reveal">
-    <div class="store-tree left">
-      <div class="tree-top"></div>
-      <div class="tree-trunk"></div>
-    </div>
-    <div class="store-building">
-      <div class="store-sign">
-        <div class="store-sign-brand">PURZER</div>
-        <div class="store-sign-sub">Scent Museum · Gyeongju</div>
+  <!-- 3D STORE INTERIOR -->
+  <div class="store-3d reveal">
+    <div class="store-scene">
+      <!-- Ceiling -->
+      <div class="store-ceiling">
+        <div class="ceiling-beam left"></div>
+        <div class="ceiling-beam right"></div>
       </div>
-      <div class="store-windows">
-        <div class="store-window">
-          <div class="window-shelf"></div>
-          <div class="window-shelf"></div>
-          <div class="window-shelf"></div>
-          <div class="window-product" style="width:10px;height:22px;bottom:19%;left:20%"></div>
-          <div class="window-product" style="width:8px;height:18px;bottom:19%;left:45%"></div>
-          <div class="window-product" style="width:12px;height:14px;bottom:19%;right:20%"></div>
-          <div class="window-product" style="width:14px;height:26px;bottom:42%;left:25%"></div>
-          <div class="window-product" style="width:10px;height:20px;bottom:42%;right:30%"></div>
+
+      <!-- Track lighting -->
+      <div class="track-rail r1">
+        <div class="track-light" style="left:8%"></div>
+        <div class="track-light" style="left:22%"></div>
+        <div class="track-light" style="left:36%"></div>
+        <div class="track-light" style="left:50%"></div>
+        <div class="track-light" style="left:64%"></div>
+        <div class="track-light" style="left:78%"></div>
+        <div class="track-light" style="left:92%"></div>
+      </div>
+      <div class="track-rail r2">
+        <div class="track-light" style="left:15%"></div>
+        <div class="track-light" style="left:40%"></div>
+        <div class="track-light" style="left:60%"></div>
+        <div class="track-light" style="left:85%"></div>
+      </div>
+
+      <!-- Side walls -->
+      <div class="left-wall">
+        <div class="left-wall-shelf"></div>
+        <div class="left-wall-shelf"></div>
+        <div class="left-wall-shelf"></div>
+        <div class="left-wall-shelf"></div>
+      </div>
+      <div class="right-wall"></div>
+
+      <!-- Glass partition (left) -->
+      <div class="glass-partition">
+        <div class="glass-frame"></div>
+        <div class="glass-frame"></div>
+        <div class="glass-frame-v"></div>
+      </div>
+
+      <!-- Columns -->
+      <div class="store-column col-left"></div>
+      <div class="store-column col-right"></div>
+
+      <!-- Back wall with shelves -->
+      <div class="back-wall">
+        <div class="accent-light top"></div>
+        <div class="accent-light mid"></div>
+        <div class="shelf-unit">
+          <div class="shelf-cell">
+            <div class="shelf-product"></div>
+            <div class="shelf-product tall"></div>
+          </div>
+          <div class="shelf-cell lit">
+            <div class="shelf-product"></div>
+            <div class="shelf-product"></div>
+            <div class="shelf-product tall"></div>
+          </div>
+          <div class="shelf-cell">
+            <div class="shelf-product tall"></div>
+            <div class="shelf-product"></div>
+          </div>
+          <div class="shelf-cell">
+            <div class="shelf-product"></div>
+            <div class="shelf-product wide"></div>
+          </div>
+          <div class="shelf-cell lit">
+            <div class="shelf-product"></div>
+            <div class="shelf-product round"></div>
+            <div class="shelf-product"></div>
+          </div>
+          <div class="shelf-cell">
+            <div class="shelf-product wide"></div>
+            <div class="shelf-product"></div>
+          </div>
+          <div class="shelf-cell">
+            <div class="shelf-product tall"></div>
+          </div>
+          <div class="shelf-cell lit">
+            <div class="shelf-product"></div>
+            <div class="shelf-product tall"></div>
+            <div class="shelf-product"></div>
+          </div>
+          <div class="shelf-cell">
+            <div class="shelf-product round"></div>
+            <div class="shelf-product"></div>
+          </div>
+          <div class="shelf-cell">
+            <div class="shelf-product"></div>
+            <div class="shelf-product"></div>
+          </div>
+          <div class="shelf-cell lit">
+            <div class="shelf-product wide"></div>
+            <div class="shelf-product tall"></div>
+          </div>
+          <div class="shelf-cell">
+            <div class="shelf-product"></div>
+            <div class="shelf-product round"></div>
+          </div>
         </div>
-        <div class="store-window">
-          <div class="window-shelf"></div>
-          <div class="window-shelf"></div>
-          <div class="window-shelf"></div>
-          <div class="window-product" style="width:16px;height:20px;bottom:19%;left:30%"></div>
-          <div class="window-product" style="width:8px;height:30px;bottom:19%;right:25%"></div>
-          <div class="window-product" style="width:12px;height:18px;bottom:42%;left:20%"></div>
-          <div class="window-product" style="width:10px;height:24px;bottom:42%;right:35%"></div>
+        <div class="center-glass"></div>
+      </div>
+
+      <!-- Brand sign -->
+      <div class="store-brand-sign">
+        <span>PURZER</span>
+      </div>
+
+      <!-- Wall sconce -->
+      <div class="wall-sconce"></div>
+
+      <!-- Floor -->
+      <div class="store-floor-3d">
+        <div class="floor-line"></div>
+        <div class="floor-line"></div>
+        <div class="floor-line"></div>
+      </div>
+
+      <!-- Display counter -->
+      <div class="display-counter">
+        <div class="counter-block side-left">
+          <div class="counter-surface"></div>
         </div>
-        <div class="store-window door"></div>
-        <div class="store-window">
-          <div class="window-shelf"></div>
-          <div class="window-shelf"></div>
-          <div class="window-shelf"></div>
-          <div class="window-product" style="width:10px;height:22px;bottom:19%;left:25%"></div>
-          <div class="window-product" style="width:14px;height:16px;bottom:19%;right:20%"></div>
-          <div class="window-product" style="width:8px;height:28px;bottom:42%;left:35%"></div>
-          <div class="window-product" style="width:12px;height:20px;bottom:42%;right:25%"></div>
+        <div class="counter-block">
+          <div class="counter-surface"></div>
         </div>
-        <div class="store-window">
-          <div class="window-shelf"></div>
-          <div class="window-shelf"></div>
-          <div class="window-shelf"></div>
-          <div class="window-product" style="width:12px;height:24px;bottom:19%;left:22%"></div>
-          <div class="window-product" style="width:10px;height:18px;bottom:19%;right:28%"></div>
-          <div class="window-product" style="width:14px;height:22px;bottom:42%;left:30%"></div>
+        <div class="counter-gap"></div>
+        <div class="counter-block center">
+          <div class="counter-surface"></div>
+        </div>
+        <div class="counter-block side-right">
+          <div class="counter-surface"></div>
         </div>
       </div>
-    </div>
-    <div class="store-floor"></div>
-    <div class="store-glow"></div>
-    <div class="store-tree right">
-      <div class="tree-top"></div>
-      <div class="tree-trunk"></div>
     </div>
   </div>
 
