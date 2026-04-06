@@ -481,55 +481,170 @@
     font-weight: 300;
   }
 
-  /* ─── SCENT PRODUCTS ─── */
-  .scent-products {
-    padding: 160px 52px;
-    background: var(--cream);
+  /* ─── PRODUCT CATALOG ─── */
+  .product-catalog {
+    padding: 120px 52px 160px;
+    background: var(--warm);
   }
-  .scent-products-header {
-    display: flex; justify-content: space-between;
-    align-items: flex-end; margin-bottom: 80px;
-    max-width: 1200px; margin-left: auto; margin-right: auto;
-    margin-bottom: 80px;
+  .product-catalog-header {
+    text-align: center; margin-bottom: 80px;
   }
-  .scent-products-header h2 {
-    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-    font-weight: 900; text-transform: uppercase;
-    letter-spacing: 0.06em; color: var(--dark);
+  .product-catalog-header h2 {
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    font-weight: 900; color: var(--dark);
+    letter-spacing: -0.01em;
+    font-family: 'Georgia', serif;
   }
-  .scent-products-grid {
-    display: grid; grid-template-columns: repeat(5, 1fr);
-    gap: 24px;
+  .product-catalog-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 40px 32px;
     max-width: 1200px; margin: 0 auto;
   }
-  .scent-product-card {
+  .catalog-card {
     text-align: center; cursor: pointer;
   }
-  .scent-product-visual {
-    aspect-ratio: 1;
-    background: var(--white);
-    border-radius: 0;
+  .catalog-card-visual {
+    aspect-ratio: 0.85;
+    background: transparent;
     display: flex; align-items: center; justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     position: relative; overflow: hidden;
     transition: transform 0.4s ease;
   }
-  .scent-product-card:hover .scent-product-visual {
-    transform: translateY(-6px);
+  .catalog-card:hover .catalog-card-visual {
+    transform: translateY(-8px);
   }
-  .scent-product-icon {
-    font-size: 2.8rem; opacity: 0.6;
-    transition: opacity 0.3s;
+  .catalog-product-img {
+    width: 70%; height: 80%;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 8px;
+    position: relative;
   }
-  .scent-product-card:hover .scent-product-icon { opacity: 1; }
-  .scent-product-name {
-    font-size: 0.78rem; font-weight: 600;
-    letter-spacing: 0.06em; color: var(--dark);
-    margin-bottom: 4px;
+  /* Product shape styles */
+  .product-bottle {
+    width: 60%; height: 85%;
+    background: linear-gradient(180deg, #a08060 0%, #7a5c3e 60%, #6b4f35 100%);
+    border-radius: 6px 6px 4px 4px;
+    position: relative;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.15);
   }
-  .scent-product-name-kr {
-    font-size: 0.7rem; color: var(--text-light);
-    font-weight: 300;
+  .product-bottle::before {
+    content: ''; position: absolute;
+    top: -12px; left: 50%; transform: translateX(-50%);
+    width: 18%; height: 12px;
+    background: #2a2520;
+    border-radius: 2px 2px 0 0;
+  }
+  .product-bottle .label {
+    position: absolute;
+    top: 30%; left: 50%; transform: translateX(-50%);
+    width: 65%; padding: 10% 0;
+    background: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 2px;
+  }
+  .product-bottle .label-brand {
+    font-size: 0.7rem; font-weight: 600;
+    color: var(--dark); letter-spacing: 0.02em;
+    font-family: 'Georgia', serif;
+  }
+  .product-bottle .label-type {
+    font-size: 0.4rem; color: var(--text-light);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    font-weight: 400;
+  }
+  .product-pump .product-bottle::before {
+    width: 10%; height: 24px;
+    top: -24px;
+    background: #2a2520;
+    border-radius: 1px;
+  }
+  .product-pump .product-bottle::after {
+    content: ''; position: absolute;
+    top: -28px; left: 50%;
+    width: 22%; height: 4px;
+    background: #2a2520;
+    transform: translateX(-50%);
+    border-radius: 1px;
+  }
+  .product-dropper .product-bottle {
+    width: 40%; height: 75%;
+    border-radius: 4px;
+  }
+  .product-dropper .product-bottle::before {
+    width: 14%; height: 18px; top: -18px;
+    background: #2a2520;
+    border-radius: 50% 50% 0 0;
+  }
+  .product-candle .product-bottle {
+    width: 55%; height: 65%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(245,240,232,0.95) 100%);
+    border-radius: 50%;
+    box-shadow: 1px 2px 8px rgba(0,0,0,0.08);
+  }
+  .product-candle .product-bottle::before { display: none; }
+  .product-tin .product-bottle {
+    width: 60%; height: 45%;
+    background: linear-gradient(180deg, #f5f0e8 0%, #e8e0d4 100%);
+    border-radius: 50%;
+    box-shadow: 1px 2px 8px rgba(0,0,0,0.08);
+  }
+  .product-tin .product-bottle::before { display: none; }
+  .product-stick .product-bottle {
+    width: 8%; height: 90%;
+    background: linear-gradient(180deg, #d4c4a8 0%, #c0ae90 100%);
+    border-radius: 3px;
+    box-shadow: 1px 2px 6px rgba(0,0,0,0.08);
+  }
+  .product-stick .product-bottle::before { display: none; }
+  .product-stick .product-bottle .label { display: none; }
+  .product-cone .product-bottle {
+    width: 50%; height: 50%;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 1px 2px 8px rgba(0,0,0,0.06);
+  }
+  .product-cone .product-bottle::before { display: none; }
+  .product-hanger .product-bottle {
+    width: 55%; height: 80%;
+    background: linear-gradient(180deg, #d4c4a8 0%, #c8b89a 100%);
+    border-radius: 4px 24px 4px 4px;
+    box-shadow: 1px 2px 8px rgba(0,0,0,0.08);
+  }
+  .product-hanger .product-bottle::before {
+    width: 20px; height: 20px;
+    top: -6px; right: -6px; left: auto;
+    transform: none;
+    border-radius: 50%;
+    background: transparent;
+    border: 3px solid #d4c4a8;
+  }
+  .product-box .product-bottle {
+    width: 70%; height: 60%;
+    background: linear-gradient(135deg, #c8b89a 0%, #b8a888 100%);
+    border-radius: 2px;
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.1);
+  }
+  .product-box .product-bottle::before { display: none; }
+  .product-stand .product-bottle {
+    width: 50%; height: 70%;
+    background: linear-gradient(180deg, #c8b89a 0%, #b8a888 100%);
+    border-radius: 2px;
+    box-shadow: 1px 2px 8px rgba(0,0,0,0.08);
+  }
+  .product-stand .product-bottle::before { display: none; }
+  .product-burner .product-bottle {
+    width: 65%; height: 70%;
+    background: linear-gradient(135deg, #d4c4a8 0%, #c8b89a 50%, #c0a878 100%);
+    border-radius: 2px;
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.1);
+  }
+  .product-burner .product-bottle::before { display: none; }
+
+  .catalog-card-name {
+    font-size: 0.82rem; font-weight: 400;
+    color: var(--text);
+    letter-spacing: 0.02em;
   }
 
   /* ─── CHAPTER GYEONGJU ─── */
@@ -738,7 +853,7 @@
     .line-section:nth-child(even) .line-content { order: 0; }
     .fragrance-item { grid-template-columns: 60px 1fr; gap: 16px; }
     .frag-desc, .frag-notes { display: none; }
-    .scent-products-grid { grid-template-columns: repeat(3, 1fr); }
+    .product-catalog-grid { grid-template-columns: repeat(3, 1fr); }
     .chapter { grid-template-columns: 1fr; }
     .chapter-visual { min-height: 50vh; }
   }
@@ -752,9 +867,8 @@
     .product-lines { padding: 120px 24px; }
     .line-content { padding: 60px 32px; }
     .fragrances { padding: 120px 24px; }
-    .scent-products { padding: 120px 24px; }
-    .scent-products-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    .scent-products-header { flex-direction: column; gap: 12px; align-items: flex-start; }
+    .product-catalog { padding: 80px 24px 120px; }
+    .product-catalog-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 16px; }
     .chapter-content { padding: 80px 32px; }
     .flagship { padding: 120px 24px; }
     .cta-section { padding: 120px 24px; }
@@ -766,7 +880,7 @@
     footer { padding: 48px 24px 28px; }
   }
   @media (max-width: 480px) {
-    .scent-products-grid { grid-template-columns: repeat(2, 1fr); }
+    .product-catalog-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-cols { flex-direction: column; gap: 28px; }
     .flagship-info { padding: 32px 28px; }
     .fragrance-item { grid-template-columns: 40px 1fr; gap: 12px; padding: 28px 0; }
@@ -883,10 +997,18 @@
       <p class="line-desc">공간의 공기를 정화하고, 본연의 향취를 부드럽게 확산합니다.</p>
       <p class="line-symbol">"보이지 않는 꽃의 개화"</p>
       <div class="line-products">
-        <span class="line-product-tag">시그니처 디퓨저</span>
         <span class="line-product-tag">룸 스프레이</span>
-        <span class="line-product-tag">인센스 홀더</span>
-        <span class="line-product-tag">고체 향수</span>
+        <span class="line-product-tag">리드 디퓨저</span>
+        <span class="line-product-tag">핸드 워시</span>
+        <span class="line-product-tag">프라그란스 오일</span>
+        <span class="line-product-tag">프라그란스 캔들</span>
+        <span class="line-product-tag">트래블 틴 캔들</span>
+        <span class="line-product-tag">인센스 스틱</span>
+        <span class="line-product-tag">인센스 콘</span>
+        <span class="line-product-tag">클로젯 택</span>
+        <span class="line-product-tag">왁 트리머</span>
+        <span class="line-product-tag">인센스 스탠드</span>
+        <span class="line-product-tag">프라그란스 오일 버너</span>
       </div>
     </div>
   </div>
@@ -1014,39 +1136,110 @@
   </div>
 </section>
 
-<!-- SCENT PRODUCTS -->
-<section class="scent-products" id="products">
-  <div class="scent-products-header">
-    <div>
-      <span class="section-label reveal">Scent Line Products</span>
-      <h2 class="reveal">맑은 향기가, 퍼져</h2>
-    </div>
+<!-- PRODUCT CATALOG -->
+<section class="product-catalog" id="products">
+  <div class="product-catalog-header">
+    <h2 class="reveal">Purzer</h2>
   </div>
-  <div class="scent-products-grid">
-    <div class="scent-product-card reveal">
-      <div class="scent-product-visual"><div class="scent-product-icon">🫙</div></div>
-      <div class="scent-product-name">Diffuser</div>
-      <div class="scent-product-name-kr">디퓨저 (실내, 차량)</div>
+  <div class="product-catalog-grid">
+    <!-- Row 1 -->
+    <div class="catalog-card reveal">
+      <div class="catalog-card-visual">
+        <div class="catalog-product-img product-spray">
+          <div class="product-bottle"><div class="label"><span class="label-type">Room Spray</span><span class="label-brand">Purzer</span></div></div>
+        </div>
+      </div>
+      <div class="catalog-card-name">룸 스프레이</div>
     </div>
-    <div class="scent-product-card reveal reveal-delay-1">
-      <div class="scent-product-visual"><div class="scent-product-icon">🧴</div></div>
-      <div class="scent-product-name">Room Spray</div>
-      <div class="scent-product-name-kr">룸 스프레이</div>
+    <div class="catalog-card reveal reveal-delay-1">
+      <div class="catalog-card-visual">
+        <div class="catalog-product-img">
+          <div class="product-bottle"><div class="label"><span class="label-type">Reed Diffuser</span><span class="label-brand">Purzer</span></div></div>
+        </div>
+      </div>
+      <div class="catalog-card-name">리드 디퓨저</div>
     </div>
-    <div class="scent-product-card reveal reveal-delay-2">
-      <div class="scent-product-visual"><div class="scent-product-icon">🧴</div></div>
-      <div class="scent-product-name">Scented Candle</div>
-      <div class="scent-product-name-kr">핸드크림</div>
+    <div class="catalog-card reveal reveal-delay-2">
+      <div class="catalog-card-visual">
+        <div class="catalog-product-img product-pump">
+          <div class="product-bottle"><div class="label"><span class="label-type">Hand Wash</span><span class="label-brand">Purzer</span></div></div>
+        </div>
+      </div>
+      <div class="catalog-card-name">핸드 워시</div>
     </div>
-    <div class="scent-product-card reveal reveal-delay-3">
-      <div class="scent-product-visual"><div class="scent-product-icon">🌫️</div></div>
-      <div class="scent-product-name">Pillow Mist</div>
-      <div class="scent-product-name-kr">필로우 미스트</div>
+    <div class="catalog-card reveal reveal-delay-3">
+      <div class="catalog-card-visual">
+        <div class="catalog-product-img product-dropper">
+          <div class="product-bottle"><div class="label"><span class="label-type">Fragrance Oil</span><span class="label-brand">Purzer</span></div></div>
+        </div>
+      </div>
+      <div class="catalog-card-name">프라그란스 오일</div>
     </div>
-    <div class="scent-product-card reveal reveal-delay-4">
-      <div class="scent-product-visual"><div class="scent-product-icon">✨</div></div>
-      <div class="scent-product-name">Solid Perfume</div>
-      <div class="scent-product-name-kr">고체향수</div>
+    <!-- Row 2 -->
+    <div class="catalog-card reveal">
+      <div class="catalog-card-visual">
+        <div class="catalog-product-img product-candle">
+          <div class="product-bottle"><div class="label"><span class="label-brand">Purzer</span></div></div>
+        </div>
+      </div>
+      <div class="catalog-card-name">프라그란스 캔들</div>
+    </div>
+    <div class="catalog-card reveal reveal-delay-1">
+      <div class="catalog-card-visual">
+        <div class="catalog-product-img product-tin">
+          <div class="product-bottle"><div class="label"><span class="label-type">Travel Tin</span><span class="label-brand">Purzer</span></div></div>
+        </div>
+      </div>
+      <div class="catalog-card-name">트래블 틴 캔들</div>
+    </div>
+    <div class="catalog-card reveal reveal-delay-2">
+      <div class="catalog-card-visual">
+        <div class="catalog-product-img product-stick">
+          <div class="product-bottle"><div class="label"><span class="label-brand">Purzer</span></div></div>
+        </div>
+      </div>
+      <div class="catalog-card-name">인센스 스틱</div>
+    </div>
+    <div class="catalog-card reveal reveal-delay-3">
+      <div class="catalog-card-visual">
+        <div class="catalog-product-img product-cone">
+          <div class="product-bottle"><div class="label"><span class="label-type">Incense</span><span class="label-brand">Purzer</span></div></div>
+        </div>
+      </div>
+      <div class="catalog-card-name">인센스 콘</div>
+    </div>
+    <!-- Row 3 -->
+    <div class="catalog-card reveal">
+      <div class="catalog-card-visual">
+        <div class="catalog-product-img product-hanger">
+          <div class="product-bottle"><div class="label"><span class="label-brand">Purzer</span></div></div>
+        </div>
+      </div>
+      <div class="catalog-card-name">클로젯 택</div>
+    </div>
+    <div class="catalog-card reveal reveal-delay-1">
+      <div class="catalog-card-visual">
+        <div class="catalog-product-img product-box">
+          <div class="product-bottle"><div class="label"><span class="label-brand">Purzer</span></div></div>
+        </div>
+      </div>
+      <div class="catalog-card-name">왁 트리머</div>
+    </div>
+    <div class="catalog-card reveal reveal-delay-2">
+      <div class="catalog-card-visual">
+        <div class="catalog-product-img product-stand">
+          <div class="product-bottle"><div class="label"><span class="label-brand">Purzer</span></div></div>
+        </div>
+      </div>
+      <div class="catalog-card-name">인센스 스탠드</div>
+    </div>
+    <div class="catalog-card reveal reveal-delay-3">
+      <div class="catalog-card-visual">
+        <div class="catalog-product-img product-burner">
+          <div class="product-bottle"><div class="label"><span class="label-brand">Purzer</span></div></div>
+        </div>
+      </div>
+      <div class="catalog-card-name">프라그란스 오일 버너</div>
     </div>
   </div>
 </section>
