@@ -131,105 +131,6 @@
     display: block;
   }
 
-  /* ─── HERO ─── */
-  .hero {
-    min-height: 100vh;
-    background: var(--bg);
-    color: var(--text-primary);
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    position: relative; overflow: hidden;
-    padding: 120px 48px 80px;
-  }
-  .hero-visual {
-    width: min(85vw, 1100px);
-    aspect-ratio: 16/9;
-    border-radius: 24px;
-    background: linear-gradient(145deg, #e8e0d4 0%, #ddd5c8 40%, #e2dbd0 100%);
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 64px;
-    opacity: 0; transform: scale(0.96) translateY(20px);
-    animation: heroVisualIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 1.2s;
-  }
-  @keyframes heroVisualIn {
-    to { opacity: 1; transform: scale(1) translateY(0); }
-  }
-  .hero-visual-glow {
-    position: absolute;
-    width: 60%; height: 60%;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(200,184,154,0.15) 0%, transparent 70%);
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    animation: glowPulse 6s ease-in-out infinite;
-  }
-  @keyframes glowPulse {
-    0%,100% { transform: translate(-50%,-50%) scale(1); opacity: 0.5; }
-    50% { transform: translate(-50%,-50%) scale(1.2); opacity: 1; }
-  }
-  .hero-visual-text {
-    position: absolute; inset: 0;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 4px;
-  }
-  .hero-visual-brand {
-    font-size: clamp(3rem, 8vw, 7rem);
-    font-weight: 900; color: #2a2520;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    line-height: 1;
-  }
-  .hero-visual-sub {
-    font-size: clamp(0.7rem, 1.2vw, 0.9rem);
-    color: var(--stone);
-    letter-spacing: 0.4em;
-    font-weight: 200;
-  }
-  .hero-headline {
-    text-align: center;
-    opacity: 0; transform: translateY(30px);
-    animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) forwards 1.6s;
-  }
-  .hero-headline h1 {
-    font-size: clamp(2rem, 4.5vw, 4rem);
-    font-weight: 900; color: var(--text-primary);
-    line-height: 1.4;
-    letter-spacing: -0.02em;
-    margin-bottom: 20px;
-  }
-  .hero-headline h1 em {
-    font-style: italic;
-    color: var(--sand);
-  }
-  .hero-headline p {
-    font-size: clamp(0.85rem, 1.4vw, 1.05rem);
-    color: var(--text-dim);
-    font-weight: 300;
-    letter-spacing: 0.05em;
-    line-height: 1.8;
-  }
-  .hero-scroll {
-    position: absolute; bottom: 40px;
-    display: flex; flex-direction: column;
-    align-items: center; gap: 12px;
-    opacity: 0; animation: fadeUp 1s ease forwards 2.4s;
-  }
-  .hero-scroll span {
-    font-size: 0.55rem; color: var(--text-dimmer);
-    letter-spacing: 0.3em; text-transform: uppercase;
-  }
-  .scroll-line {
-    width: 1px; height: 40px;
-    background: linear-gradient(to bottom, var(--text-dimmer), transparent);
-    animation: scrollPulse 2s ease-in-out infinite;
-  }
-  @keyframes scrollPulse {
-    0%,100% { transform: scaleY(1); opacity: 0.3; }
-    50% { transform: scaleY(0.5); opacity: 0.8; }
-  }
-
   /* ─── ANIMATIONS ─── */
   @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
   .reveal {
@@ -678,18 +579,46 @@
 
   /* ─── 3D STORE HERO ─── */
   .store-hero {
-    padding: 80px 48px 60px;
+    min-height: 100vh;
+    padding: 120px 48px 60px;
     text-align: center;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 0;
   }
-  .store-hero-label { margin-bottom: 48px; }
+  .store-hero-title {
+    margin-bottom: 40px;
+    opacity: 0; transform: translateY(30px);
+    animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) forwards 1.4s;
+  }
+  .store-hero-brand {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 900; color: var(--text-primary);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .store-hero-sub {
+    font-size: clamp(0.7rem, 1.1vw, 0.85rem);
+    color: var(--stone);
+    letter-spacing: 0.4em;
+    font-weight: 200;
+  }
   .store-hero-info {
-    margin-top: 32px;
+    margin-top: 28px;
     font-size: 0.78rem; color: var(--text-dim);
     letter-spacing: 0.06em; font-weight: 300;
+    opacity: 0; animation: fadeUp 1s ease forwards 2s;
   }
   .store-3d {
     width: min(94vw, 1000px);
     margin: 0 auto;
+    opacity: 0; transform: scale(0.96) translateY(20px);
+    animation: storeIn 1.2s cubic-bezier(0.16,1,0.3,1) forwards 1.6s;
+  }
+  @keyframes storeIn {
+    to { opacity: 1; transform: scale(1) translateY(0); }
   }
   .store-scene {
     width: 100%;
@@ -1125,8 +1054,7 @@
     nav.scrolled { padding: 16px 24px; }
     .nav-links { display: none; }
     .hamburger { display: flex; }
-    .hero { padding: 100px 24px 60px; }
-    .hero-visual { border-radius: 16px; }
+    .store-hero { padding: 80px 24px 40px; min-height: 90vh; }
     .stats { padding: 80px 24px; }
     .brand-story { padding: 140px 24px; }
     .pillars { padding: 0 24px 120px; }
@@ -1143,7 +1071,6 @@
     .footer-top { flex-direction: column; gap: 44px; }
     .footer-cols { gap: 36px; }
     .footer-bottom { flex-direction: column; gap: 14px; }
-    .hero-scroll { display: none; }
     footer { padding: 48px 24px 28px; }
   }
   @media (max-width: 480px) {
@@ -1180,30 +1107,11 @@
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-visual">
-    <div class="hero-visual-glow"></div>
-    <div class="hero-visual-text">
-      <div class="hero-visual-brand">Purzer<span style="font-size:0.3em;vertical-align:super;font-weight:300">™</span></div>
-      <div class="hero-visual-sub">Sensory Diffusion Brand</div>
-    </div>
-  </div>
-  <div class="hero-headline">
-    <h1>비워낸 자리에<br>온전한 감각이, <em>퍼져</em></h1>
-    <p>향, 빛, 소리 — 공간의 무형 에너지를 다루는<br>감각 확산 브랜드</p>
-  </div>
-  <div class="hero-scroll">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
-  </div>
-</section>
-
-<!-- 3D FLAGSHIP STORE -->
-<section class="store-hero">
-  <div class="store-hero-label">
-    <span class="section-label reveal">Flagship Store</span>
-    <h2 class="reveal" style="font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;color:var(--text-primary);letter-spacing:0.06em;text-transform:uppercase;margin-top:8px">Purzer Scent Museum</h2>
+<!-- HERO: STORE GRAPHIC -->
+<section class="store-hero" id="top">
+  <div class="store-hero-title">
+    <h1 class="store-hero-brand">Purzer<span style="font-size:0.3em;vertical-align:super;font-weight:300">™</span></h1>
+    <p class="store-hero-sub">Scent Museum · 경주</p>
   </div>
   <div class="store-3d reveal">
     <div class="store-scene">
@@ -1711,18 +1619,18 @@
     });
   }
 
-  // Parallax subtle effect on hero visual
+  // Parallax on store graphic
   let ticking = false;
   window.addEventListener('scroll', () => {
     if (!ticking) {
       requestAnimationFrame(() => {
-        const heroVisual = document.querySelector('.hero-visual');
-        if (heroVisual) {
+        const store = document.querySelector('.store-3d');
+        if (store) {
           const scroll = window.scrollY;
-          const opacity = Math.max(0, 1 - scroll / 800);
-          const scale = Math.max(0.9, 1 - scroll / 5000);
-          heroVisual.style.transform = `scale(${scale}) translateY(${scroll * 0.08}px)`;
-          heroVisual.style.opacity = opacity;
+          const opacity = Math.max(0, 1 - scroll / 900);
+          const scale = Math.max(0.92, 1 - scroll / 6000);
+          store.style.transform = `scale(${scale}) translateY(${scroll * 0.06}px)`;
+          store.style.opacity = opacity;
         }
         ticking = false;
       });
